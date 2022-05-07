@@ -32,13 +32,13 @@ def DebugOut():
             else: print("  ", end="")
         print(colors.reset)
 
-def CheckMoveValidity(parentPos, move):
+def CheckMoveValidity(parentPos, move): # why the fuck is -17 % 8 = 7 while 17 % 8 = 1 ?!?!?
     if (parentPos + move < 0): return False
     if (parentPos + move > 63): return False
     if (locked[parentPos + move]): return False
     if moveSet.index(move) // 4 == 0:
         return parentPos % 8 >= 8 - (move % 8)
-    return parentPos % 8 <= 8 - (move % 8)
+    return parentPos % 8 < 8 - (move % 8)
 
 def GetValidMoves(parentPos):
     validMoves = []
