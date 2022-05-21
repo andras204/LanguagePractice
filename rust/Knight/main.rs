@@ -18,7 +18,7 @@ fn main() {
         print("Input start position between 0 and 63: ");
         input_pos = String::new();
         io::stdin().read_line(&mut input_pos).unwrap();
-        start_pos = input_pos.trim().parse().unwrap();
+        start_pos = input_pos.trim().parse().unwrap()
     }
     if recursive_search(start_pos, &move_set, locked, steps) == 0 {println!("success")}
     else {println!("fail")}
@@ -82,7 +82,7 @@ fn output(lock: &[bool;64], steps: u8){
             print!("{i:0>2} ");
             io::stdout().flush().unwrap()
         }
-        else {print("  ")}
+        else {print("   ")}
         if i % 8 == 7 {println!()}
     }
 }
